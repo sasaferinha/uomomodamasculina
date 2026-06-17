@@ -9,19 +9,16 @@
       content="UOMO Moda Masculina - moda masculina classica, consultoria de imagem e alfaiataria em Lavras, MG."
     />
     <link rel="stylesheet" href="https://uomo-moda-masculina.vercel.app/styles.css" />
+  
   <style>
-  .testimonial-grid-static {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: clamp(1rem, 2vw, 1.5rem);
-    width: min(1120px, 92vw);
-    margin: 2rem auto 0;
+  #depoimentos .testimonial-card {
+    transition: opacity .18s ease, transform .18s ease;
   }
-  .testimonial-grid-static .testimonial-card {
-    height: 100%;
+  #depoimentos .testimonial-controls button {
+    cursor: pointer;
   }
-  @media (max-width: 900px) {
-    .testimonial-grid-static { grid-template-columns: 1fr; }
+  #depoimentos .testimonial-dots span {
+    cursor: pointer;
   }
 </style>
   </head>
@@ -307,39 +304,83 @@
             <p>Depoimentos</p>
             <h2>O que dizem nossos clientes</h2>
           </div>
-          <div class="testimonial-grid-static">
-            <article class="testimonial-card" aria-label="Depoimento de Rafael Andrade">
-              <div class="quote">"</div>
-              <div class="stars">★ ★ ★ ★ ★</div>
-              <p>A consultoria com o Alison transformou completamente meu guarda-roupa. Hoje me visto com confianca em qualquer ocasiao, do escritorio ao evento de gala.</p>
-              <span class="small-rule"></span>
-              <div class="avatar">RA</div>
-              <h3>Rafael Andrade</h3>
-              <p>Empresario - Lavras, MG</p>
-            </article>
-            <article class="testimonial-card" aria-label="Depoimento de Bruno Carvalho">
-              <div class="quote">"</div>
-              <div class="stars">★ ★ ★ ★ ★</div>
-              <p>Atendimento impecavel e pecas de uma qualidade rara. A UOMO entende o homem moderno como nenhuma outra loja na regiao.</p>
-              <span class="small-rule"></span>
-              <div class="avatar">BC</div>
-              <h3>Bruno Carvalho</h3>
-              <p>Advogado - Belo Horizonte, MG</p>
-            </article>
-            <article class="testimonial-card" aria-label="Depoimento de Lucas Monteiro">
-              <div class="quote">"</div>
-              <div class="stars">★ ★ ★ ★ ★</div>
-              <p>Comprei meu terno de casamento na UOMO. Ajuste perfeito, tecido nobre e uma experiencia de compra digna de boutique europeia.</p>
-              <span class="small-rule"></span>
-              <div class="avatar">LM</div>
-              <h3>Lucas Monteiro</h3>
-              <p>Medico - Sao Joao del-Rei, MG</p>
-            </article>
+          <article class="testimonial-card" aria-live="polite">
+            <div class="quote">"</div>
+            <div class="stars">★ ★ ★ ★ ★</div>
+            <p id="testimonial-text">A consultoria com o Alison transformou completamente meu guarda-roupa. Hoje me visto com confianca em qualquer ocasiao, do escritorio ao evento de gala.</p>
+            <span class="small-rule"></span>
+            <div class="avatar" id="testimonial-initials">RA</div>
+            <h3 id="testimonial-name">Rafael Andrade</h3>
+            <p id="testimonial-role">Empresario - Lavras, MG</p>
+          </article>
+          <div class="testimonial-controls">
+            <button type="button" id="prev-testimonial" aria-label="Depoimento anterior">‹</button>
+            <div class="testimonial-dots" id="testimonial-dots"><span class="active"></span><span></span><span></span></div>
+            <button type="button" id="next-testimonial" aria-label="Proximo depoimento">›</button>
           </div>
         </section>
       </main>
     </div>
 
     
+  <script>
+(function () {
+  var testimonials = [
+    {
+      text: "A consultoria com o Alison transformou completamente meu guarda-roupa. Hoje me visto com confianca em qualquer ocasiao, do escritorio ao evento de gala.",
+      name: "Rafael Andrade",
+      role: "Empresario - Lavras, MG",
+      initials: "RA"
+    },
+    {
+      text: "Atendimento impecavel e pecas de uma qualidade rara. A UOMO entende o homem moderno como nenhuma outra loja na regiao.",
+      name: "Bruno Carvalho",
+      role: "Advogado - Belo Horizonte, MG",
+      initials: "BC"
+    },
+    {
+      text: "Comprei meu terno de casamento na UOMO. Ajuste perfeito, tecido nobre e uma experiencia de compra digna de boutique europeia.",
+      name: "Lucas Monteiro",
+      role: "Medico - Sao Joao del-Rei, MG",
+      initials: "LM"
+    }
+  ];
+  var current = 0;
+  var textEl = document.getElementById("testimonial-text");
+  var initialsEl = document.getElementById("testimonial-initials");
+  var nameEl = document.getElementById("testimonial-name");
+  var roleEl = document.getElementById("testimonial-role");
+  var dotsEl = document.getElementById("testimonial-dots");
+  var prev = document.getElementById("prev-testimonial");
+  var next = document.getElementById("next-testimonial");
+  if (!textEl || !initialsEl || !nameEl || !roleEl || !dotsEl || !prev || !next) return;
+  function render() {
+    var item = testimonials[current];
+    textEl.textContent = item.text;
+    initialsEl.textContent = item.initials;
+    nameEl.textContent = item.name;
+    roleEl.textContent = item.role;
+    dotsEl.innerHTML = "";
+    testimonials.forEach(function (_, index) {
+      var dot = document.createElement("span");
+      dot.className = index === current ? "active" : "";
+      dot.addEventListener("click", function () {
+        current = index;
+        render();
+      });
+      dotsEl.appendChild(dot);
+    });
+  }
+  prev.addEventListener("click", function () {
+    current = (current - 1 + testimonials.length) % testimonials.length;
+    render();
+  });
+  next.addEventListener("click", function () {
+    current = (current + 1) % testimonials.length;
+    render();
+  });
+  render();
+})();
+</script>
   </body>
 </html>
