@@ -9,6 +9,21 @@
       content="UOMO Moda Masculina - moda masculina classica, consultoria de imagem e alfaiataria em Lavras, MG."
     />
     <link rel="stylesheet" href="https://uomo-moda-masculina.vercel.app/styles.css" />
+  <style>
+  .testimonial-grid-static {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1rem, 2vw, 1.5rem);
+    width: min(1120px, 92vw);
+    margin: 2rem auto 0;
+  }
+  .testimonial-grid-static .testimonial-card {
+    height: 100%;
+  }
+  @media (max-width: 900px) {
+    .testimonial-grid-static { grid-template-columns: 1fr; }
+  }
+</style>
   </head>
   <body>
     <div class="site">
@@ -292,19 +307,34 @@
             <p>Depoimentos</p>
             <h2>O que dizem nossos clientes</h2>
           </div>
-          <article class="testimonial-card" aria-live="polite">
-            <div class="quote">"</div>
-            <div class="stars">★ ★ ★ ★ ★</div>
-            <p id="testimonial-text"></p>
-            <span class="small-rule"></span>
-            <div class="avatar" id="testimonial-initials"></div>
-            <h3 id="testimonial-name"></h3>
-            <p id="testimonial-role"></p>
-          </article>
-          <div class="testimonial-controls">
-            <button type="button" id="prev-testimonial" aria-label="Depoimento anterior">‹</button>
-            <div class="testimonial-dots" id="testimonial-dots"></div>
-            <button type="button" id="next-testimonial" aria-label="Proximo depoimento">›</button>
+          <div class="testimonial-grid-static">
+            <article class="testimonial-card" aria-label="Depoimento de Rafael Andrade">
+              <div class="quote">"</div>
+              <div class="stars">★ ★ ★ ★ ★</div>
+              <p>A consultoria com o Alison transformou completamente meu guarda-roupa. Hoje me visto com confianca em qualquer ocasiao, do escritorio ao evento de gala.</p>
+              <span class="small-rule"></span>
+              <div class="avatar">RA</div>
+              <h3>Rafael Andrade</h3>
+              <p>Empresario - Lavras, MG</p>
+            </article>
+            <article class="testimonial-card" aria-label="Depoimento de Bruno Carvalho">
+              <div class="quote">"</div>
+              <div class="stars">★ ★ ★ ★ ★</div>
+              <p>Atendimento impecavel e pecas de uma qualidade rara. A UOMO entende o homem moderno como nenhuma outra loja na regiao.</p>
+              <span class="small-rule"></span>
+              <div class="avatar">BC</div>
+              <h3>Bruno Carvalho</h3>
+              <p>Advogado - Belo Horizonte, MG</p>
+            </article>
+            <article class="testimonial-card" aria-label="Depoimento de Lucas Monteiro">
+              <div class="quote">"</div>
+              <div class="stars">★ ★ ★ ★ ★</div>
+              <p>Comprei meu terno de casamento na UOMO. Ajuste perfeito, tecido nobre e uma experiencia de compra digna de boutique europeia.</p>
+              <span class="small-rule"></span>
+              <div class="avatar">LM</div>
+              <h3>Lucas Monteiro</h3>
+              <p>Medico - Sao Joao del-Rei, MG</p>
+            </article>
           </div>
         </section>
       </main>
