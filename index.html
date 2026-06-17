@@ -21,6 +21,28 @@
     cursor: pointer;
   }
 </style>
+  <style id="hero-lighting-fix">
+  #inicio .hero-photo {
+    filter: brightness(1.18) contrast(1.04) saturate(1.04);
+    object-position: 66% center;
+  }
+  #inicio .hero-shade {
+    background:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.54) 34%, rgba(0, 0, 0, 0.08) 70%),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.02));
+  }
+  @media (max-width: 760px) {
+    #inicio .hero-photo {
+      filter: brightness(1.12) contrast(1.03) saturate(1.03);
+      object-position: 70% center;
+    }
+    #inicio .hero-shade {
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.5) 48%, rgba(0, 0, 0, 0.14) 100%),
+        linear-gradient(0deg, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.04));
+    }
+  }
+</style>
   </head>
   <body>
     <div class="site">
