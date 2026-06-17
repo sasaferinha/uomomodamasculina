@@ -1,4 +1,486 @@
 <!doctype html>
+<html lang="pt-BR"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UOMO | Moda Masculina - Lavras, MG</title>
+    <meta name="description" content="UOMO Moda Masculina - moda masculina classica, consultoria de imagem e alfaiataria em Lavras, MG.">
+    <link rel="stylesheet" href="https://uomomodamasculina.com.br/styles.css">
+  <base href="https://uomomodamasculina.com.br/"><style>@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Outfit:wght@300;400;500;700&display=swap");
+:root { --black: #050505; --panel: #101010; --panel-soft: #151515; --white: #f7f2e8; --muted: rgba(247, 242, 232, 0.62); --faint: rgba(247, 242, 232, 0.38); --gold: #c9a84c; --gold-soft: rgba(201, 168, 76, 0.46); --serif: "Cormorant Garamond", Georgia, serif; --sans: "Outfit", Arial, sans-serif; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0px; background: var(--black); color: var(--white); font-family: var(--sans); overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+.site { min-height: 100vh; background: var(--black); }
+.topbar { position: fixed; top: 0px; left: 0px; right: 0px; z-index: 50; display: flex; align-items: center; gap: 0px; padding: 1.6rem 3.8rem; background: linear-gradient(rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0)); transition: opacity 0.25s, transform 0.25s; }
+.topbar.is-hidden { opacity: 0; pointer-events: none; transform: translateY(-14px); }
+.brand { display: none; font-family: var(--serif); font-size: clamp(1.5rem, 2vw, 2.3rem); letter-spacing: 0.34em; color: var(--gold); white-space: nowrap; }
+.nav { display: flex; align-items: center; justify-content: center; gap: clamp(1.4rem, 3vw, 3.6rem); width: 100%; }
+.nav a { position: relative; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255, 255, 255, 0.72); transition: color 0.2s; }
+.nav a:hover, .nav a.active { color: var(--gold); }
+.nav a.active::after { content: ""; position: absolute; left: 0px; right: 0px; bottom: -0.8rem; height: 1px; background: var(--gold); }
+.dots { position: fixed; right: 2rem; top: 50%; z-index: 60; display: flex; flex-direction: column; gap: 0.65rem; transform: translateY(-50%); }
+.dots a { width: 5px; height: 5px; border: 1px solid var(--gold-soft); border-radius: 50%; background: rgba(201, 168, 76, 0.26); }
+.dots a.active { background: var(--gold); transform: scale(1.6); }
+.section { position: relative; min-height: 100vh; padding: clamp(5rem, 9vw, 8rem) clamp(1.2rem, 4vw, 4.5rem); }
+.section-frame::before, .section-frame::after, .corner { content: ""; position: absolute; width: 76px; height: 76px; pointer-events: none; z-index: 5; }
+.section-frame::before, .corner-tl { top: 1.8rem; left: 1.8rem; border-top: 1px solid var(--gold); border-left: 1px solid var(--gold); }
+.section-frame::after, .corner-br { right: 1.8rem; bottom: 1.8rem; border-right: 1px solid var(--gold); border-bottom: 1px solid var(--gold); }
+.corner-tr { top: 1.8rem; right: 1.8rem; border-top: 1px solid var(--gold); border-right: 1px solid var(--gold); }
+.corner-bl { left: 1.8rem; bottom: 1.8rem; border-left: 1px solid var(--gold); border-bottom: 1px solid var(--gold); }
+.hero { display: flex; align-items: center; min-height: 100vh; padding-top: 5.8rem; overflow: hidden; }
+.hero-rebuilt { min-height: 100svh; padding: clamp(5.8rem, 8.5vh, 7rem) clamp(1.4rem, 6vw, 6rem) clamp(2.7rem, 5.5vh, 4rem); background: rgb(5, 5, 5); }
+.hero-rebuilt .hero-photo { position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; object-position: 72% center; filter: saturate(0.9) contrast(1.04) brightness(0.88); }
+.hero-clean-shade { position: absolute; inset: 0px; background: linear-gradient(90deg, rgba(5, 5, 5, 0.98) 0%, rgba(5, 5, 5, 0.91) 36%, rgba(5, 5, 5, 0.4) 66%, rgba(5, 5, 5, 0.12) 100%), linear-gradient(0deg, rgba(5, 5, 5, 0.62), rgba(5, 5, 5, 0.18)); }
+.hero-rebuilt::after { content: ""; position: absolute; top: 0px; right: 0px; z-index: 8; width: min(24vw, 18rem); height: 7rem; pointer-events: none; background: linear-gradient(rgba(5, 5, 5, 0.98) 0%, rgba(5, 5, 5, 0.92) 58%, rgba(5, 5, 5, 0) 100%); }
+.hero-rebuilt-content { position: relative; z-index: 10; max-width: 590px; margin-top: clamp(0.2rem, 2vh, 1.4rem); }
+.hero-rebuilt h1 { margin: 0.75rem 0px 0px; font-family: var(--serif); font-size: clamp(4.8rem, 10.4vw, 8.8rem); font-weight: 300; letter-spacing: 0.2em; line-height: 0.82; }
+.hero-lead { max-width: 545px; margin: 1.2rem 0px 0px; font-family: var(--serif); font-size: clamp(2.05rem, 4.2vw, 3.45rem); font-weight: 300; line-height: 1.02; }
+.hero-copy { max-width: 430px; margin: 0.8rem 0px 0px; color: rgba(247, 242, 232, 0.64); font-size: 0.9rem; line-height: 1.65; }
+.hero-proof { display: block; width: fit-content; margin-top: 1.25rem; border: 0px; background: transparent; padding: 0px; }
+.hero-proof span { color: var(--gold); }
+.hero-proof p { margin: 0px; color: var(--white); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap; line-height: 1.2; }
+.hero-cta-row { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.18rem; }
+.hero-cta { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 148px; padding: 0.78rem 1.12rem; border: 1px solid rgba(201, 168, 76, 0.78); background: rgba(0, 0, 0, 0.42); color: var(--white); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; backdrop-filter: blur(6px); transition: transform 0.22s, background 0.22s, color 0.22s, border-color 0.22s; }
+.hero-cta:hover { transform: translateY(-2px); background: rgba(201, 168, 76, 0.18); color: var(--white); border-color: var(--gold); }
+.hero-cta-primary, .hero-cta-whatsapp:hover { background: var(--gold); color: rgb(7, 7, 7); }
+.hero-cta-primary:hover { background: rgb(215, 184, 93); color: rgb(7, 7, 7); }
+.hero-cta-whatsapp { box-shadow: rgba(201, 168, 76, 0.42) 0px 0px 0px 0px; animation: 2.2s ease-out 0s infinite normal none running whatsapp-soft-pulse; }
+.hero-cta-instagram { color: var(--gold); }
+@keyframes whatsapp-soft-pulse { 
+  0% { box-shadow: rgba(201, 168, 76, 0.42) 0px 0px 0px 0px; }
+  70% { box-shadow: rgba(201, 168, 76, 0) 0px 0px 0px 8px; }
+  100% { box-shadow: rgba(201, 168, 76, 0) 0px 0px 0px 0px; }
+}
+.video-showcase { min-height: 82vh; display: grid; grid-template-columns: minmax(0px, 0.92fr) minmax(300px, 0.58fr); align-items: center; justify-content: center; gap: clamp(2rem, 5vw, 5rem); background: radial-gradient(circle at 50% 40%, rgba(201, 168, 76, 0.08), transparent 34%), rgb(7, 7, 7); text-align: left; }
+.video-copy { width: min(430px, 92vw); }
+.video-copy h2 { margin: 0.75rem 0px 0px; max-width: 420px; font-family: var(--serif); font-size: clamp(2rem, 3.4vw, 3rem); font-weight: 400; line-height: 1.05; }
+.video-copy p:last-child { margin: 0.9rem 0px 0px; max-width: 380px; color: var(--muted); line-height: 1.75; }
+.video-frame { position: relative; width: min(760px, 56vw); aspect-ratio: 16 / 9; border: 1px solid rgba(201, 168, 76, 0.58); background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.42) 0px 34px 80px; }
+.video-frame::before, .video-frame::after { content: ""; position: absolute; z-index: 2; width: 52px; height: 52px; pointer-events: none; }
+.video-frame::before { top: 12px; left: 12px; border-top: 1px solid var(--gold); border-left: 1px solid var(--gold); }
+.video-frame::after { right: 12px; bottom: 12px; border-right: 1px solid var(--gold); border-bottom: 1px solid var(--gold); }
+.video-frame video { width: 100%; height: 100%; object-fit: cover; display: block; filter: contrast(1.06) saturate(1.08) brightness(0.96); }
+.video-whatsapp { display: inline-flex; align-items: center; justify-content: center; margin-top: 1.4rem; min-height: 48px; padding: 0.9rem 1.7rem; border: 1px solid var(--gold); background: var(--gold); color: rgb(7, 7, 7); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; transition: transform 0.22s, background 0.22s; }
+.video-whatsapp:hover { transform: translateY(-2px); background: rgb(215, 184, 93); }
+.hero-photo { position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; object-position: 70% center; }
+.hero-shade { position: absolute; inset: 0px; background: linear-gradient(90deg, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.9) 38%, rgba(0, 0, 0, 0.3) 72%), linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.12)); }
+.hero-content { position: relative; z-index: 10; max-width: 650px; margin-left: clamp(0rem, 5vw, 5rem); }
+.eyebrow { margin: 0px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.42em; text-transform: uppercase; color: var(--gold); }
+.hero h1 { margin: 1.15rem 0px 0px; font-family: var(--serif); font-size: clamp(5rem, 12vw, 9.8rem); font-weight: 300; letter-spacing: 0.18em; line-height: 0.82; }
+.rule { display: flex; align-items: center; gap: 0.8rem; width: min(480px, 72vw); margin: 1.5rem 0px 1.05rem; }
+.rule span { height: 1px; flex: 1 1 0%; background: linear-gradient(to right, transparent, var(--gold), transparent); }
+.rule i { width: 12px; height: 12px; background: var(--gold); transform: rotate(45deg); }
+.hero h2 { max-width: 600px; margin: 0px; font-family: var(--serif); font-size: clamp(2.25rem, 4.2vw, 3.65rem); font-weight: 300; line-height: 1.02; }
+.hero h2 strong { color: var(--gold); font-weight: 300; }
+.location { margin: 1rem 0px 1.25rem; font-family: var(--serif); font-size: 1.3rem; color: var(--white); }
+.award { display: flex; align-items: center; gap: 1.4rem; max-width: 500px; margin-bottom: 1.45rem; padding: 0.65rem 0px; border-top: 1px solid var(--gold-soft); border-bottom: 1px solid var(--gold-soft); }
+.award span { display: grid; width: 54px; height: 54px; place-items: center; border: 1px solid var(--gold-soft); border-radius: 50%; color: var(--gold); font-family: var(--serif); font-size: 1.25rem; }
+.award p { margin: 0px; font-family: var(--serif); font-size: clamp(1.05rem, 1.7vw, 1.45rem); color: var(--white); }
+.award b { color: var(--gold); font-weight: 500; }
+.actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; min-width: 210px; padding: 1rem 1.7rem; border: 1px solid var(--gold); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; transition: transform 0.2s, background 0.2s, color 0.2s; }
+.btn:hover { transform: translateY(-2px); }
+.btn.primary { background: var(--gold); color: rgb(8, 8, 8); }
+.btn.ghost { background: rgba(0, 0, 0, 0.32); color: var(--white); }
+.section-title { margin: 0px auto clamp(2.3rem, 5vw, 4.5rem); text-align: center; }
+.section-title p, .lined { display: inline-flex; align-items: center; gap: 1rem; }
+.section-title p::before, .section-title p::after, .lined::before, .lined::after { content: ""; width: 42px; height: 1px; background: var(--gold); }
+.section-title p { margin: 0px 0px 0.8rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.42em; text-transform: uppercase; color: var(--gold); }
+.section-title h2 { margin: 0px; font-family: var(--serif); font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+.collection { background: var(--panel); }
+.infinite-carousel { position: relative; width: min(1440px, 100%); margin: 0px auto; overflow: hidden; mask-image: linear-gradient(to right, transparent, rgb(0, 0, 0) 8%, rgb(0, 0, 0) 92%, transparent); }
+figure { margin: 0px; }
+.carousel-track { display: flex; width: max-content; animation: 36s linear 0s infinite normal none running carousel-left; will-change: transform; }
+.carousel-track.reverse { animation-name: carousel-right; animation-duration: 42s; }
+.carousel-set { display: flex; flex: 0 0 auto; gap: clamp(0.8rem, 1.5vw, 1.25rem); padding-right: clamp(0.8rem, 1.5vw, 1.25rem); }
+.infinite-carousel:hover .carousel-track { animation-play-state: paused; }
+@keyframes carousel-left { 
+  0% { transform: translateX(0px); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes carousel-right { 
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0px); }
+}
+.look-carousel figure, .store-carousel figure, .store-feature figure { position: relative; overflow: hidden; border: 1px solid rgba(201, 168, 76, 0.35); background: rgb(11, 11, 11); flex: 0 0 auto; }
+.look-carousel figure { width: clamp(240px, 28vw, 390px); }
+.look-carousel img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; filter: brightness(0.9) saturate(0.92); }
+.about, .contact, .testimonials { display: flex; align-items: center; justify-content: center; text-align: center; }
+.about-inner, .contact-inner { max-width: 760px; }
+.about h2, .contact h2 { margin: 0.8rem 0px 0.3rem; font-family: var(--serif); font-size: clamp(3rem, 6vw, 5rem); font-weight: 600; line-height: 0.95; }
+.gold-note { margin: 0px 0px 2rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); }
+.about p, .contact p, .testimonial-card p { color: var(--muted); line-height: 1.9; }
+.small-rule { display: block; width: 44px; height: 1px; margin: 2rem auto; background: var(--gold); }
+.about h3 { margin: 0px 0px 1rem; font-family: var(--serif); font-size: 2rem; }
+.about-whatsapp { display: inline-flex; align-items: center; justify-content: center; margin-top: 1.65rem; min-height: 46px; padding: 0.85rem 1.65rem; border: 1px solid var(--gold); background: var(--gold); color: rgb(8, 8, 8); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; transition: transform 0.22s, background 0.22s, box-shadow 0.22s; box-shadow: rgba(201, 168, 76, 0.34) 0px 0px 0px 0px; animation: 2.3s ease-out 0s infinite normal none running about-whatsapp-pulse; }
+.about-whatsapp:hover { transform: translateY(-2px); background: rgb(215, 184, 93); box-shadow: rgba(0, 0, 0, 0.28) 0px 14px 28px; }
+@keyframes about-whatsapp-pulse { 
+  0% { box-shadow: rgba(201, 168, 76, 0.34) 0px 0px 0px 0px; }
+  70% { box-shadow: rgba(201, 168, 76, 0) 0px 0px 0px 8px; }
+  100% { box-shadow: rgba(201, 168, 76, 0) 0px 0px 0px 0px; }
+}
+.store { background: rgb(13, 13, 13); }
+.store-feature { width: min(1280px, 100%); margin: 0px auto 0.85rem; }
+.store-feature img { width: 100%; height: clamp(420px, 62vh, 680px); object-fit: cover; object-position: center center; }
+.store-carousel figure { width: clamp(220px, 25vw, 330px); }
+.store-carousel img { width: 100%; height: clamp(150px, 15vw, 220px); object-fit: cover; }
+.faq-section { display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 50% 0%, rgba(201, 168, 76, 0.08), transparent 34%), rgb(8, 8, 8); }
+.faq-inner { width: min(980px, 100%); margin: 0px auto; }
+.faq-list { display: grid; gap: 0.8rem; }
+.faq-list details { border: 1px solid rgba(201, 168, 76, 0.28); background: rgba(255, 255, 255, 0.024); transition: border-color 0.22s, background 0.22s; }
+.faq-list details[open] { border-color: rgba(201, 168, 76, 0.58); background: rgba(201, 168, 76, 0.043); }
+.faq-list summary { cursor: pointer; list-style: none; padding: 1.1rem 1.25rem; color: var(--white); font-family: var(--serif); font-size: clamp(1.35rem, 2.2vw, 1.75rem); line-height: 1.15; }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after { content: "+"; float: right; color: var(--gold); font-family: var(--sans); font-size: 1rem; line-height: 1.5; }
+.faq-list details[open] summary::after { content: "-"; }
+.faq-list p { margin: 0px; padding: 0px 1.25rem 1.15rem; color: var(--muted); line-height: 1.8; }
+.faq-whatsapp { display: flex; align-items: center; justify-content: center; width: fit-content; margin: 1.6rem auto 0px; min-height: 48px; padding: 0.9rem 1.7rem; border: 1px solid var(--gold); background: var(--gold); color: rgb(7, 7, 7); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; transition: transform 0.22s, background 0.22s; }
+.faq-whatsapp:hover { transform: translateY(-2px); background: rgb(215, 184, 93); }
+figcaption { position: absolute; left: 0px; right: 0px; bottom: 0px; padding: 1rem; background: linear-gradient(transparent, rgba(0, 0, 0, 0.94)); color: var(--gold); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.24em; text-align: center; text-transform: uppercase; }
+.testimonials { flex-direction: column; min-height: 68vh; background: var(--black); padding-top: clamp(4.5rem, 7vw, 6rem); padding-bottom: clamp(2.5rem, 5vw, 4rem); }
+.testimonials .section-title { margin-bottom: 1.6rem; }
+.testimonials .section-title h2 { font-size: clamp(1.6rem, 3.2vw, 2.35rem); }
+.testimonials .section-title p { font-size: 0.65rem; }
+.testimonial-card > p { font-size: 0.88rem; line-height: 1.7; }
+.testimonial-card { width: min(640px, 88vw); padding: clamp(1.35rem, 2.8vw, 2.1rem); border: 1px solid rgba(201, 168, 76, 0.38); background: rgb(17, 17, 17); text-align: center; }
+.quote { color: var(--gold); font-family: var(--serif); font-size: 2.25rem; line-height: 1; }
+.stars { margin: 0.25rem 0px 1rem; color: var(--gold); letter-spacing: 0.35em; font-size: 0.75rem; }
+.avatar { display: grid; width: 40px; height: 40px; place-items: center; margin: 0px auto 0.75rem; border-radius: 50%; background: var(--gold); color: rgb(8, 8, 8); font-family: var(--serif); font-size: 0.9rem; font-weight: 600; }
+.testimonial-card h3 { margin: 0px; font-family: var(--serif); letter-spacing: 0.14em; text-transform: uppercase; }
+.testimonial-controls { display: flex; align-items: center; gap: 1.2rem; margin-top: 1.15rem; }
+.testimonial-controls button { width: 34px; height: 34px; border: 1px solid var(--gold-soft); border-radius: 50%; background: transparent; color: var(--gold); cursor: pointer; }
+.testimonial-dots { display: flex; gap: 0.55rem; }
+.testimonial-dots span { width: 7px; height: 7px; border-radius: 50%; background: var(--gold-soft); }
+.testimonial-dots span.active { width: 22px; border-radius: 999px; background: var(--gold); }
+.contact { min-height: 100vh; }
+.contact h2 em { color: var(--gold); font-style: italic; font-weight: 400; }
+.wide-btn { margin-top: 2rem; min-width: min(420px, 100%); }
+address { margin-top: 2.4rem; color: var(--faint); font-size: 0.8rem; font-style: normal; line-height: 1.8; }
+address a { color: var(--gold); }
+footer { position: absolute; bottom: 2rem; left: 0px; right: 0px; color: rgba(201, 168, 76, 0.28); font-size: 0.62rem; letter-spacing: 0.26em; text-align: center; text-transform: uppercase; }
+@media (max-width: 860px) {
+  .topbar { align-items: flex-start; flex-direction: column; gap: 1rem; padding: 1.2rem; }
+  .nav { justify-content: flex-start; gap: 1rem; overflow-x: auto; padding-bottom: 0.5rem; }
+  .nav a { font-size: 0.62rem; letter-spacing: 0.18em; white-space: nowrap; }
+  .dots { display: none; }
+  .hero { align-items: flex-end; padding: 10rem 1.2rem 4rem; }
+  .hero-rebuilt { padding: 7.6rem 1.2rem 2.5rem; }
+  .hero-rebuilt .hero-photo { object-position: 62% center; }
+  .hero-clean-shade { background: linear-gradient(rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.92)), linear-gradient(90deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.22)); }
+  .hero-rebuilt-content { margin-top: 0px; }
+  .hero-rebuilt h1 { font-size: clamp(3.7rem, 20vw, 5.8rem); }
+  .hero-lead { font-size: clamp(1.85rem, 10vw, 2.75rem); }
+  .hero-proof, .hero-cta-row { align-items: stretch; flex-direction: column; }
+  .hero-proof { display: inline-flex; width: 100%; max-width: 420px; }
+  .hero-proof p { white-space: normal; }
+  .hero-cta { width: 100%; max-width: 420px; }
+  .video-showcase { min-height: auto; display: flex; flex-direction: column; text-align: center; padding: 6rem 1.2rem 4rem; }
+  .video-frame { width: 100%; max-width: 100%; aspect-ratio: 16 / 9; order: 2; }
+  .video-copy { order: 1; width: 100%; }
+  .video-copy h2, .video-copy p:last-child { margin-left: auto; margin-right: auto; }
+  .video-frame::before, .video-frame::after { width: 34px; height: 34px; }
+  .video-whatsapp { width: 100%; max-width: 420px; order: 3; }
+  .look-carousel figure { width: 76vw; }
+  .store-carousel figure { width: 78vw; }
+  .store-feature img { height: 320px; }
+  .faq-section { padding-top: 5.5rem; padding-bottom: 4rem; }
+  .faq-list summary { padding: 1rem; font-size: 1.25rem; }
+  .faq-list p { padding: 0px 1rem 1rem; font-size: 0.92rem; }
+  .faq-whatsapp { width: 100%; max-width: 420px; text-align: center; }
+  .section-frame::before, .section-frame::after, .corner { width: 42px; height: 42px; }
+}</style></head>
+  <body>
+    <div class="site">
+      <header class="topbar" aria-label="Navegacao principal">
+        <a class="brand" href="#inicio">UOMO</a>
+        <nav class="nav">
+          <a class="active" href="#inicio">Inicio</a>
+          <a href="#colecao">Colecao</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#nossa-loja">Nossa loja</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contato">Contato</a>
+        </nav>
+      </header>
+
+      <nav class="dots" aria-label="Navegacao lateral">
+        <a href="#inicio" aria-label="Inicio" class="active"></a>
+        <a href="#colecao" aria-label="Colecao"></a>
+        <a href="#experiencia" aria-label="Experiencia UOMO"></a>
+        <a href="#sobre" aria-label="Sobre"></a>
+        <a href="#nossa-loja" aria-label="Nossa loja"></a>
+        <a href="#faq" aria-label="FAQ"></a>
+        <a href="#contato" aria-label="Contato"></a>
+        <a href="#depoimentos" aria-label="Depoimentos"></a>
+      </nav>
+
+      <main>
+        <section class="hero hero-rebuilt section" id="inicio" aria-label="UOMO Moda Masculina">
+          <img class="hero-photo" src="https://uomomodamasculina.com.br/assets/modelo-uomo.jpg" alt="Modelo usando terno UOMO">
+          <div class="hero-clean-shade"></div>
+
+          <div class="hero-rebuilt-content">
+            <p class="eyebrow">Moda masculina - Lavras, MG</p>
+            <h1>UOMO</h1>
+            <p class="hero-lead">Moda masculina classica para homens de presenca</p>
+            <p class="hero-copy">
+              Alfaiataria, casual elegante e pecas selecionadas para quem valoriza caimento,
+              postura e sofisticacao.
+            </p>
+            <div class="hero-proof">
+              <p><span>10x</span> eleita a melhor loja de Lavras</p>
+            </div>
+            <div class="hero-cta-row">
+              <a class="hero-cta hero-cta-primary" href="#colecao">Ver colecao</a>
+              <a class="hero-cta hero-cta-whatsapp" href="https://wa.me/5535999508805?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20UOMO%20e%20gostaria%20de%20atendimento%20para%20escolher%20pe%C3%A7as%20masculinas.%20Podem%20me%20ajudar%3F" target="_blank" rel="noopener">
+                WhatsApp
+              </a>
+              <a class="hero-cta hero-cta-instagram" href="https://instagram.com/uomo_masculino" target="_blank" rel="noopener">
+                Instagram
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section collection" id="colecao">
+          <div class="section-title">
+            <p>Colecao</p>
+            <h2>Estilo &amp; personalidade</h2>
+          </div>
+          <div class="infinite-carousel look-carousel" aria-label="Carrossel de looks UOMO">
+            <div class="carousel-track">
+              <div class="carousel-set">
+                <figure><img src="https://uomomodamasculina.com.br/assets/alison-1.jpeg" alt="Look UOMO em escada"></figure>
+                <figure><img src="https://uomomodamasculina.com.br/assets/alison-2.jpeg" alt="Look UOMO blazer azul"></figure>
+                <figure><img src="https://uomomodamasculina.com.br/assets/look-1.jpg" alt="Look UOMO terno claro"></figure>
+                <figure><img src="https://uomomodamasculina.com.br/assets/look-2.jpg" alt="Look UOMO casual elegante"></figure>
+                <figure><img src="https://uomomodamasculina.com.br/assets/look-3.jpg" alt="Look UOMO alfaiataria"></figure>
+              </div>
+              <div class="carousel-set" aria-hidden="true">
+                <figure><img src="https://uomomodamasculina.com.br/assets/alison-1.jpeg" alt=""></figure>
+                <figure><img src="https://uomomodamasculina.com.br/assets/alison-2.jpeg" alt=""></figure>
+                <figure><img src="https://uomomodamasculina.com.br/assets/look-1.jpg" alt=""></figure>
+                <figure><img src="https://uomomodamasculina.com.br/assets/look-2.jpg" alt=""></figure>
+                <figure><img src="https://uomomodamasculina.com.br/assets/look-3.jpg" alt=""></figure>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section video-showcase" id="experiencia">
+          <div class="video-frame">
+            <video src="https://uomomodamasculina.com.br/assets/video-loja.mp4" poster="assets/loja-1.jpeg" autoplay="" muted="" loop="" playsinline="" preload="auto" disablepictureinpicture="">
+              Seu navegador nao suporta video.
+            </video>
+          </div>
+
+          <div class="video-copy">
+            <p class="eyebrow lined">Experiencia UOMO</p>
+            <h2>Um espaco pensado para o homem que valoriza presenca</h2>
+            <p>
+              Veja de perto a atmosfera da loja, os detalhes da curadoria e o cuidado no atendimento.
+            </p>
+            <a class="video-whatsapp" href="https://wa.me/5535999508805?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20UOMO%20e%20gostaria%20de%20atendimento%20para%20escolher%20pe%C3%A7as%20masculinas.%20Podem%20me%20ajudar%3F" target="_blank" rel="noopener">
+              Agendar pelo WhatsApp
+            </a>
+          </div>
+        </section>
+
+        <section class="section about section-frame" id="sobre">
+          <div class="about-inner">
+            <p class="eyebrow lined">Fundador &amp; consultor</p>
+            <h2>Alison Vilas Boas</h2>
+            <p class="gold-note">Quase duas decadas de experiencia</p>
+            <p>
+              Referencia em moda masculina em Lavras ha quase duas decadas. A loja UOMO une estilo,
+              personalidade e precisao para ajudar cada homem a projetar a melhor versao de si mesmo
+              dentro e fora da loja.
+            </p>
+            <span class="small-rule"></span>
+            <h3>Alfaiataria sob medida</h3>
+            <p>
+              Faremos todos os ajustes necessarios para que o terno se enquadre perfeitamente nas suas
+              medidas, garantindo caimento impecavel e conforto absoluto.
+            </p>
+            <a class="about-whatsapp" href="https://wa.me/5535999508805?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20UOMO%20e%20gostaria%20de%20atendimento%20para%20escolher%20pe%C3%A7as%20masculinas.%20Podem%20me%20ajudar%3F" target="_blank" rel="noopener">
+              Falar com consultor no WhatsApp
+            </a>
+          </div>
+        </section>
+
+        <section class="section store" id="nossa-loja">
+          <div class="section-title">
+            <p>Nossa loja</p>
+            <h2>Um espaco pensado para o bem vestir</h2>
+          </div>
+          <div class="store-feature">
+            <figure>
+              <img src="https://uomomodamasculina.com.br/assets/loja-1.jpeg" alt="Interior da loja UOMO">
+              <figcaption>Um espaco pensado para o seu conforto</figcaption>
+            </figure>
+          </div>
+          <div class="infinite-carousel store-carousel" aria-label="Carrossel da loja UOMO">
+            <div class="carousel-track reverse">
+              <div class="carousel-set">
+                <figure>
+                  <img src="https://uomomodamasculina.com.br/assets/loja-2.jpeg" alt="Area de ternos da UOMO">
+                  <figcaption>Area de ternos</figcaption>
+                </figure>
+                <figure>
+                  <img src="https://uomomodamasculina.com.br/assets/loja-3.jpeg" alt="Camisaria UOMO">
+                  <figcaption>Camisaria</figcaption>
+                </figure>
+                <figure>
+                  <img src="https://uomomodamasculina.com.br/assets/loja-4.jpeg" alt="Ternos UOMO">
+                  <figcaption>Area de ternos</figcaption>
+                </figure>
+                <figure>
+                  <img src="https://uomomodamasculina.com.br/assets/loja-5.jpeg" alt="Blazers UOMO">
+                  <figcaption>Area de blazer</figcaption>
+                </figure>
+                <figure>
+                  <img src="https://uomomodamasculina.com.br/assets/loja-6.jpeg" alt="Detalhe de blazer UOMO">
+                  <figcaption>Detalhes</figcaption>
+                </figure>
+              </div>
+              <div class="carousel-set" aria-hidden="true">
+                <figure>
+                  <img src="https://uomomodamasculina.com.br/assets/loja-2.jpeg" alt="">
+                  <figcaption>Area de ternos</figcaption>
+                </figure>
+                <figure>
+                  <img src="https://uomomodamasculina.com.br/assets/loja-3.jpeg" alt="">
+                  <figcaption>Camisaria</figcaption>
+                </figure>
+                <figure>
+                  <img src="https://uomomodamasculina.com.br/assets/loja-4.jpeg" alt="">
+                  <figcaption>Area de ternos</figcaption>
+                </figure>
+                <figure>
+                  <img src="https://uomomodamasculina.com.br/assets/loja-5.jpeg" alt="">
+                  <figcaption>Area de blazer</figcaption>
+                </figure>
+                <figure>
+                  <img src="https://uomomodamasculina.com.br/assets/loja-6.jpeg" alt="">
+                  <figcaption>Detalhes</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section faq-section" id="faq">
+          <div class="faq-inner">
+            <div class="section-title">
+              <p>FAQ</p>
+              <h2>Perguntas frequentes</h2>
+            </div>
+
+            <div class="faq-list">
+              <details open="">
+                <summary>Vocês enviam para todo o Brasil?</summary>
+                <p>
+                  Sim. Enviamos para todo o Brasil com cuidado na embalagem e orientacao pelo WhatsApp
+                  para voce escolher as pecas com mais seguranca.
+                </p>
+              </details>
+
+              <details>
+                <summary>Como faco para comprar pelo WhatsApp?</summary>
+                <p>
+                  Basta chamar nossa equipe pelo WhatsApp. Entendemos seu estilo, tamanho e ocasiao de uso,
+                  enviamos opcoes disponiveis e finalizamos o pedido de forma simples.
+                </p>
+              </details>
+
+              <details>
+                <summary>A loja ajuda na escolha do tamanho?</summary>
+                <p>
+                  Sim. Nossa consultoria orienta sobre medidas, caimento e combinacoes para reduzir duvidas
+                  antes da compra, inclusive para clientes de outras cidades.
+                </p>
+              </details>
+
+              <details>
+                <summary>Vocês trabalham com alfaiataria e ajustes?</summary>
+                <p>
+                  Sim. Para atendimentos presenciais, fazemos os ajustes necessarios para buscar o melhor
+                  caimento em ternos, blazers e pecas sociais.
+                </p>
+              </details>
+
+              <details>
+                <summary>Quais tipos de peca encontro na UOMO?</summary>
+                <p>
+                  Trabalhamos com moda masculina classica, alfaiataria, casual elegante, camisas, blazers,
+                  ternos, calcas e pecas essenciais para diferentes ocasioes.
+                </p>
+              </details>
+
+              <details>
+                <summary>Onde fica a loja fisica?</summary>
+                <p>
+                  A UOMO fica em Lavras, MG, na Rua Francisco Sales, 576 B. Tambem atendemos pelo WhatsApp
+                  e Instagram.
+                </p>
+              </details>
+            </div>
+
+            <a class="faq-whatsapp" href="https://wa.me/5535999508805?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20UOMO%20e%20gostaria%20de%20atendimento%20para%20escolher%20pe%C3%A7as%20masculinas.%20Podem%20me%20ajudar%3F" target="_blank" rel="noopener">
+              Tirar duvida pelo WhatsApp
+            </a>
+          </div>
+        </section>
+
+        <section class="section contact section-frame" id="contato">
+          <div class="contact-inner">
+            <p class="eyebrow">Agende sua consultoria</p>
+            <h2>Sua <em>melhor</em><br>versao comeca<br>com um passo</h2>
+            <p>
+              Fale diretamente com nossos consultores e marque sua consultoria de imagem. Atendimento
+              exclusivo e presencial na UOMO, em Lavras.
+            </p>
+            <a class="btn primary wide-btn" href="https://wa.me/5535999508805?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20UOMO%20e%20gostaria%20de%20atendimento%20para%20escolher%20pe%C3%A7as%20masculinas.%20Podem%20me%20ajudar%3F" target="_blank" rel="noopener">
+              Quero agendar minha consultoria!
+            </a>
+            <address>
+              Rua Francisco Sales, 576 B - Lavras, MG<br>
+              <a href="https://instagram.com/uomo_masculino" target="_blank" rel="noopener">@uomo_masculino</a>
+              - Estacionamento exclusivo
+            </address>
+          </div>
+          <footer>UOMO Moda Masculina © 2026</footer>
+        </section>
+
+        <section class="section testimonials" id="depoimentos">
+          <div class="section-title">
+            <p>Depoimentos</p>
+            <h2>O que dizem nossos clientes</h2>
+          </div>
+          <article class="testimonial-card" aria-live="polite">
+            <div class="quote">"</div>
+            <div class="stars">★ ★ ★ ★ ★</div>
+            <p id="testimonial-text">A consultoria com o Alison transformou completamente meu guarda-roupa. Hoje me visto com confianca em qualquer ocasiao, do escritorio ao evento de gala.</p>
+            <span class="small-rule"></span>
+            <div class="avatar" id="testimonial-initials">RA</div>
+            <h3 id="testimonial-name">Rafael Andrade</h3>
+            <p id="testimonial-role">Empresario - Lavras, MG</p>
+          </article>
+          <div class="testimonial-controls">
+            <button type="button" id="prev-testimonial" aria-label="Depoimento anterior">‹</button>
+            <div class="testimonial-dots" id="testimonial-dots"><span class="active"></span><span class=""></span><span class=""></span></div>
+            <button type="button" id="next-testimonial" aria-label="Proximo depoimento">›</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    
+  
+
+</body><div id="codex-browser-sidebar-comments-root" style="position: fixed; inset: 0px; pointer-events: none; z-index: 2147483647;"></div></html><!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
